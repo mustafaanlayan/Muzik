@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MuzikStoreRazor.UI.Models
 {
-    public class Muzik
+    public class Music
     {
         [Key]
         public int Id { get; set; }
