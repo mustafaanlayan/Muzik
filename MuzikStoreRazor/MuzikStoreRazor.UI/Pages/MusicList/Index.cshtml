@@ -1,0 +1,55 @@
+﻿@page
+@using System.Linq
+@model MuzikStoreRazor.UI.Pages.MusicList.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="container row p-0 m-0">
+    
+    <div class="col-9">
+        <h2 class="text-info">Music List</h2>
+    </div>
+    <div class="col-3">
+        <a class="btn btn-info form-control text-white">Yeni Müzik Ekle</a>
+    </div>
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.Musics.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Musics.FirstOrDefault().Name"></label>
+                        </th>
+                        <th>
+                            @*  <label asp-for="Musics.FirstOrDefault().Name"></label>*@
+                            @Html.DisplayFor(x=>x.Musics.FirstOrDefault().Aouthor)
+                        </th>
+                        <th>
+                            <label >Operasyon</label>
+                        </th>
+                    </tr>
+                    @foreach (var mus in Model.Musics)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(x=>mus.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(x=>mus.Aouthor)
+                            </td>
+                            <td>
+                                <a class="btn btn-success btn-sm">Ekle</a>
+                                <a class="btn btn-danger btn-sm">Sil</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </form>
+
+    </div>
+
+</div>
